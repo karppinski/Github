@@ -18,6 +18,9 @@ namespace GithubHelper.Services
             response.EnsureSuccessStatusCode();
 
             var content = await response.Content.ReadAsStringAsync();
+
+            Console.WriteLine(content);
+
             var repositories = JsonConvert.DeserializeObject<IEnumerable<Repository>>(content);
             return repositories;
         }
